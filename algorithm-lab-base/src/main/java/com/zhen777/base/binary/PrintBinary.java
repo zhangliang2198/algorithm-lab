@@ -1,4 +1,4 @@
-package com.zhen777.www.binary;
+package com.zhen777.base.binary;
 
 /**
  * 打印二进制表示

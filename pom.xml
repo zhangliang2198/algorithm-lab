@@ -10,6 +10,9 @@
 
     <modules>
         <module>algorithm-lab-base</module>
+        <module>algorithm-lab-class</module>
+        <module>algorithm-lab-leecode</module>
+        <module>algorithm-lab-new</module>
     </modules>
 
     <name>${project.artifactId}</name>

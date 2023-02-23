@@ -1,4 +1,4 @@
-package com.zhen777.www.simple;
+package com.zhen777.base.simple;
 
 /**
  * 阶乘总和
