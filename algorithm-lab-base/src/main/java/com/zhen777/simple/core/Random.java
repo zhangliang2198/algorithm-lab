@@ -1,6 +1,6 @@
-package com.zhen777.base.core;
+package com.zhen777.simple.core;
 
-import com.zhen777.base.Util;
+import com.zhen777.simple.Util;
 
 /**
  * 随机

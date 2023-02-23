@@ -1,6 +1,6 @@
-package com.zhen777.base.sort;
+package com.zhen777.simple.sort;
 
-import com.zhen777.base.Util;
+import com.zhen777.simple.Util;
 
 public class SelectSort {
     public static void main(String[] args) {

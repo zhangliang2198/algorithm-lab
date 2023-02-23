@@ -1,8 +1,6 @@
-package com.zhen777.base.core;
+package com.zhen777.simple.core;
 
-import com.zhen777.base.Util;
-
-import java.util.Random;
+import com.zhen777.simple.Util;
 
 public class RandToRand1 {
     public static void main(String[] args) {

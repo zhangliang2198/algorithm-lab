@@ -1,4 +1,4 @@
-package com.zhen777.base.binary;
+package com.zhen777.simple.binary;
 
 public class BinaryInfo {
     public static void main(String[] args) {
