@@ -41,6 +41,8 @@ public class BSExist {
                 L = mid + 1;
             }
         }
-        return -1;
+
+        // 当 L=R的时候，还剩最后一个没有验证。或者可以使用 while(L<=R)，应该是一样的效果
+        return arr[L] == number ? L : -1;
     }
 }
