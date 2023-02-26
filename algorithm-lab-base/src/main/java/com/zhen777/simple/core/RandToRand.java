@@ -4,10 +4,10 @@ import com.zhen777.simple.Util;
 
 public class RandToRand {
     public static void main(String[] args) {
-        int testTime = 100000;
-        int res[] = new int[10];
+        int testTime = 1000000;
+        int res[] = new int[20];
         for (int i = 0; i < testTime; i++) {
-            res[getNewIntRandom1()]++;
+            res[getNewIntRandom2()]++;
         }
         Util.printArray(res);
     }
@@ -27,6 +27,18 @@ public class RandToRand {
             return res;
         }
         return getNewIntRandom1();
+    }
+
+    // 得到 0-9 等概率
+    private static int getNewIntRandom2() {
+        int n = 5;
+        int res;
+        // 循环改写递归
+        do {
+            res = (getBinary(n) << 4) + (getBinary(n) << 3) + (getBinary(n) << 2) + (getBinary(n) << 1) + (getBinary(n));
+        }
+        while (res >= 18);
+        return res;
     }
 
     // 由getRandom 1-5 的随机，产生一个0，1发生器
