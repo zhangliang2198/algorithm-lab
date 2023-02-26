@@ -13,13 +13,13 @@ import java.util.Random;
  */
 public class BSExist {
     public static void main(String[] args) {
-        int[] arr = Util.makeArray(30, 20);
+        int[] arr = Util.makeArray(20, 20);
         BubbleSort.bubbleSort(arr);
-        int needFind = (int) (Math.random() * 30);
+        int needFind = (int) (Math.random() * 20);
         Util.printArray(arr);
         System.out.println("要查找：" + needFind);
 
-        int res = isExist(arr, needFind);
+        int res = nearestIndex(arr, needFind);
         System.out.println(res);
     }
 
@@ -37,6 +37,35 @@ public class BSExist {
                 return mid;
             } else if (arr[mid] > number) {
                 R = mid - 1;
+            } else {
+                L = mid + 1;
+            }
+        }
+
+        // 当 L=R的时候，还剩最后一个没有验证。或者可以使用 while(L<=R)，应该是一样的效果
+        return arr[L] == number ? L : -1;
+    }
+
+
+    /**
+     * 查最左最小值
+     *
+     * @param arr    加勒比海盗
+     * @param number 数量
+     * @return int
+     */
+    private static int nearestIndex(int[] arr, int number) {
+        if (arr == null || arr.length == 0) {
+            return -1;
+        }
+        int L = 0;
+        int R = arr.length - 1;
+        // 等同 (L+R)/2 但不会有 int 溢出问题
+        int mid;
+        while (L < R) {
+            mid = L + ((R - L) >> 1);
+            if (arr[mid] >= number) {
+                R = mid;
             } else {
                 L = mid + 1;
             }
