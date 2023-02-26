@@ -16,7 +16,7 @@ public class BubbleSort {
         Util.printArray(arr);
     }
 
-    private static void bubbleSort(int[] arr) {
+    public static void bubbleSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }
@@ -31,7 +31,7 @@ public class BubbleSort {
         }
     }
 
-    private static void bubbleSort1(int[] arr) {
+    public static void bubbleSort1(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }
