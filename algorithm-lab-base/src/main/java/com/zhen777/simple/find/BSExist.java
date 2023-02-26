@@ -62,16 +62,18 @@ public class BSExist {
         int R = arr.length - 1;
         // 等同 (L+R)/2 但不会有 int 溢出问题
         int mid;
-        while (L < R) {
+        int index = -1;
+        while (L <= R) {
             mid = L + ((R - L) >> 1);
             if (arr[mid] >= number) {
-                R = mid;
+                index = (arr[mid] == number) ? mid : index;
+                R = mid - 1;
             } else {
                 L = mid + 1;
             }
         }
 
         // 当 L=R的时候，还剩最后一个没有验证。或者可以使用 while(L<=R)，应该是一样的效果
-        return arr[L] == number ? L : -1;
+        return index;
     }
 }
