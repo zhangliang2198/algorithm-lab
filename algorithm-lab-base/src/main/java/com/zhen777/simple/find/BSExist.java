@@ -73,7 +73,6 @@ public class BSExist {
             }
         }
 
-        // 当 L=R的时候，还剩最后一个没有验证。或者可以使用 while(L<=R)，应该是一样的效果
         return index;
     }
 }
