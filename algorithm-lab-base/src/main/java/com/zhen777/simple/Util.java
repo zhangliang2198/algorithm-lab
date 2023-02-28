@@ -16,12 +16,16 @@ public class Util {
         System.out.println();
     }
 
-    public static void swapArray(int[] array, int i, int j) {
+    public static void swapArray1(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
-
+    public static void swapArray(int[] array, int i, int j) {
+        array[i] =  array[i] ^ array[j];
+        array[j] =  array[i] ^ array[j];
+        array[i] =  array[i] ^ array[j];
+    }
     public static int[] makeArray(int max, int length) {
         Random res = new Random();
         int[] result = new int[length];
