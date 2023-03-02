@@ -19,15 +19,15 @@ public class LinkRevert {
     //传入头指针，返回新的头指针
     private static SinglePointNode revertSingleLink(SinglePointNode head) {
         // 要返回的头指针
-        SinglePointNode curr = head;
+
         SinglePointNode prev = head;
         SinglePointNode next = head.next;
-        head.next = null;
+        prev.next = null;
         while (next != null) {
             prev = next;
             next = next.next;
-            prev.next = curr;
-            curr = prev;
+            prev.next = head;
+            head = prev;
         }
 
         return prev;

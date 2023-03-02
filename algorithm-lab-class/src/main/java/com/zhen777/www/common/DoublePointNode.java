@@ -10,4 +10,7 @@ public class DoublePointNode {
     public DoublePointNode prev;
     public DoublePointNode next;
     public Integer data;
+    public DoublePointNode(Integer data) {
+        this.data = data;
+    }
 }
