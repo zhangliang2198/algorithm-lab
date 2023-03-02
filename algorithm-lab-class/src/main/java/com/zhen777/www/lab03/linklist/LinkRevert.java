@@ -1,4 +1,4 @@
-package com.zhen777.www.lab02.linklist;
+package com.zhen777.www.lab03.linklist;
 
 import com.zhen777.www.common.SinglePointNode;
 
