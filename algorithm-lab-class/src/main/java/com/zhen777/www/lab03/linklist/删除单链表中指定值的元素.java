@@ -5,62 +5,79 @@ import com.zhen777.www.common.SinglePointNode;
 
 // 在链表中删除指定值的所有节点
 public class 删除单链表中指定值的元素 {
-    public static void main(String[] args) {
-        SinglePointNode singlePointNode = makeNode();
-        while (singlePointNode != null) {
+    public static class Node {
+        public int data;
+        public Node next;
 
-            System.out.println(singlePointNode.data);
-            singlePointNode = singlePointNode.next;
-        }
-
-        singlePointNode = makeNode();
-        SinglePointNode singlePointNode1 = deleteValue(singlePointNode, 2);
-        while (singlePointNode1 != null) {
-            System.out.println(singlePointNode1.data);
-            singlePointNode1 = singlePointNode1.next;
+        public Node(int data) {
+            this.data = data;
         }
     }
 
-    private static SinglePointNode deleteValue(SinglePointNode singlePointNode, int i) {
-        if (singlePointNode.next == null) {
-            if (singlePointNode.data == i) {
+    public static class LinkList {
+        public Node head;
+
+        public void append(Node node) {
+            if (head == null) {
+                head = node;
+                return;
+            }
+            Node ori = head;
+            while (head.next != null) {
+                head = head.next;
+            }
+            head.next = node;
+            head = ori;
+        }
+
+        public LinkList remove(int value) {
+            Node ori = head;
+            if (head == null) {
                 return null;
-            } else {
-                return singlePointNode;
             }
-        }
-        SinglePointNode r_node = singlePointNode;
-        SinglePointNode curr = singlePointNode.next;
-        SinglePointNode pre = singlePointNode;
-        while (curr != null) {
-            if (pre.data == i) {
-                curr = curr.next;
-                pre = pre.next;
-                r_node = pre;
-            } else {
-                if (curr.data == i) {
-                    pre.next = curr.next;
-                    curr = curr.next;
-                } else {
-                    curr = curr.next;
-                    pre = pre.next;
+            while (head.data == value) {
+                head = head.next;
+            }
+
+            while (head.next != null) {
+                if (head.next.data == value) {
+                    head.next = head.next.next;
                 }
+                head = head.next;
             }
+            head = ori;
+            return this;
         }
 
-        return r_node;
+        public void display() {
+            Node ori = head;
+            StringBuilder message = new StringBuilder();
+            while (head.next != null) {
+                message.append(head.data).append(" -> ");
+                head = head.next;
+            }
+            head = ori;
+            message.append("null");
+            System.out.println(message);
+        }
     }
 
-    private static SinglePointNode makeNode() {
-        SinglePointNode node1 = new SinglePointNode(1);
-        SinglePointNode node2 = new SinglePointNode(2);
-        SinglePointNode node3 = new SinglePointNode(3);
-        SinglePointNode node4 = new SinglePointNode(4);
-        SinglePointNode node5 = new SinglePointNode(5);
-        node4.next = node5;
-        node3.next = node4;
-        node2.next = node3;
-        node1.next = node2;
-        return node1;
+    public static void main(String[] args) {
+        LinkList ls = new LinkList();
+        ls.append(new Node(1));
+        ls.append(new Node(2));
+        ls.append(new Node(3));
+        ls.append(new Node(4));
+        ls.append(new Node(5));
+        ls.append(new Node(6));
+
+        System.out.println("原始链表");
+        ls.display();
+        System.out.println("原始链表删除2");
+        ls.remove(2).display();
+
+        System.out.println("原始链表删除4");
+        ls.remove(4).display();
     }
+
 }
